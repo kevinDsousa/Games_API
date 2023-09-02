@@ -1,6 +1,4 @@
 import * as mongoose from 'mongoose';
-import { ConsolesSquemas } from 'src/consoles/schemas/consoles.schemas';
-import { DevelopersSquemas } from 'src/developer/schemas/developers.schema';
 
 export const GamesSquemas = new mongoose.Schema({
   name: {
@@ -15,9 +13,19 @@ export const GamesSquemas = new mongoose.Schema({
   website: {
     type: String,
   },
-  developer: [DevelopersSquemas],
+  developer: {
+    type : mongoose.Schema.Types.ObjectId, 
+    ref: 'DevelopersSquemas', 
+    require: true
+  },
   gender: {
     type: String,
   },
-  consoles: [ConsolesSquemas],
+  consoles: [
+    {
+      type : mongoose.Schema.Types.ObjectId, 
+      ref: 'ConsolesSquemas', 
+      require: true
+    },
+  ],
 });

@@ -30,7 +30,7 @@ export class CreateGameDto {
   readonly consoles: Consoles[];
 
   @ApiProperty({ description: 'Array de desenvolvedores' })
-  @IsArray()
+  @IsString()
   @IsNotEmpty()
-  readonly developer: Developers[];
+  readonly developer: Developers;
 }
